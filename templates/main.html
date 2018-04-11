@@ -1,0 +1,29 @@
+<doctype html>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<head>
+	<title>SugarWOD Search</title>
+</head>
+
+<header> 
+  <div class="container"> 
+    <strong><nav> 
+      <ul class="menu"> 
+        <li><a href="{{ url_for('home') }}">Home</a></li> 
+        <li><a href="{{ url_for('upload') }}">Upload</a></li> 
+      </ul> 
+    </nav></strong> 
+  </div> 
+</header> 
+
+{% from "_formhelpers.html" import render_field %}
+<h2>Search Your Workouts</h2>
+<form method=post>
+	<dl>
+	    <p>
+	    {{ render_field(form.search) }}
+	  </dl>
+	  <p><input type=submit value=Search>
+</form>
+
+<h2>Results</h3>
+{{ table }}

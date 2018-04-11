@@ -1,0 +1,30 @@
+<doctype html>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<head>
+  <title>SugarWOD Search</title>
+</head>
+
+<header> 
+  <div class="container"> 
+    <strong><nav> 
+      <ul class="menu"> 
+        <li><a href="{{ url_for('home') }}">Home</a></li> 
+        <li><a href="{{ url_for('upload') }}">Upload</a></li> 
+      </ul> 
+    </nav></strong> 
+  </div> 
+</header> 
+ <body>
+   <h2>Upload your workouts.csv</h2>
+    <form method = "POST" enctype = "multipart/form-data">
+       <input type = "file" name = "file" />
+       <input type = "submit"/>
+    </form>
+    
+    <p>{{ message }}</p>
+
+    <br/>
+
+    <p>Here's how to get your workouts.csv file emailed to you</p>
+    <img src="static/sugarwod.gif"/>
+</body>
