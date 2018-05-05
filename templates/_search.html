@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Search{% endblock %}
+{% block content %}
+
+{% from "_formhelpers.html" import render_field %}
+<h2>SEARCH TEMPLATE</h2>
+<form method=post>
+    <div class="form-group">
+        {{ render_field(form.search) }}
+    <input type=submit value=Search class="btn btn-primary">
+    </div>
+</form>
+
+<h2>Search Results</h2>
+{{ table }}
+
+{% endblock %}

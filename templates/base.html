@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>SugarWOD Search | {% block title %}{% endblock %}</title>
+{% include '_head.html' %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">SugarWOD Search</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('upload') }}">Upload</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- include individual page partials -->
+        {% block content %}{% endblock %}
+        {% block upload %}{% endblock %}
+    </div>
+    {% include '_scripts.html' %}
+</body>
+</html>
