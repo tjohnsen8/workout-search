@@ -16,7 +16,7 @@ def home():
 	search = WorkoutSearchForm(request.form)
 	if request.method == 'POST':
 		return search_results(search)
-	return render_template("main.html", form=search)
+	return render_template("base.html", form=search)
 
 
 @application.route('/results')
@@ -25,7 +25,7 @@ def search_results(search):
 	results = SugarWodSearch(search_string)
 	table = WorkoutResults([Workout(result) for result in results])
 	table.border = True
-	return render_template("main.html", form=search, table=table)
+	return render_template("_search.html", form=search, table=table)
 
 
 @application.route('/upload', methods=['GET', 'POST'])
@@ -43,5 +43,6 @@ def upload():
 
 
 if __name__ == '__main__':
+	application.config['TEMPLATES_AUTO_RELOAD'] = True
 	application.secret_key = os.urandom(12)
 	application.run(host='0.0.0.0')
