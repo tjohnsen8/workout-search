@@ -16,7 +16,7 @@ def home():
 	search = WorkoutSearchForm(request.form)
 	if request.method == 'POST':
 		return search_results(search)
-	return render_template("base.html", form=search)
+	return render_template("_search.html", form=search)
 
 
 @application.route('/results')
